@@ -1,0 +1,67 @@
+body {
+  background-color: #180726;
+}
+
+h1 {
+  color: white;
+}
+
+h1 sub {
+  font-size: 35%;
+  color: white;
+  margin-left: 0.2em;
+  opacity: 0.7;
+}
+
+h1 sub a {
+  color: white;
+}
+
+h1 sub a:hover {
+  color: white;
+}
+
+#searchInput {
+  width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  float: left;
+}
+
+#resultsBox {
+	margin-top: 10em;
+	opacity: 0;
+}
+
+#resultsBox a:hover {
+	text-decoration: none;
+}
+
+.result {
+	color: #121212;
+	border-radius: 0;
+	border: none;
+	margin-top: 1em;
+
+}
+
+.result:hover {
+	border-left: 0.5em solid #ED9F35;
+}
+
+#scrollTop {
+	color: #180726;
+	width: 60px;
+	height: 60px;
+	font-size: 2em;
+	padding: 0.4em 0.5em;
+	border-radius: 50%;
+	opacity: 0.3;
+	display: none;
+	position: fixed;
+}
+
+#scrollTop:hover {
+	opacity: 1;
+}
