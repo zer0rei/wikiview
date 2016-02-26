@@ -8,9 +8,10 @@ $(document).ready(function() {
 		window.open("http://en.wikipedia.org/wiki/Special:Random");
 	}); // <<< random.click
 
+
 	// --- SEARCHING THE WIKI ---
 
-	// Slide box functions
+	// Slide the wikiBox
 	function slideBoxUp() {
 		$("#wikiBox").animate({
 			marginTop: (0.2 * wikiBoxMarginTop) + 'px',
@@ -51,7 +52,10 @@ $(document).ready(function() {
 	}); // <<< search.click
 
 	// Searching
-
+	
+	// Functions :
+	
+	// Animate redults	
 	function animateResults() {
 		$("#resultsBox").animate({
 			marginTop: '3em',
@@ -59,6 +63,13 @@ $(document).ready(function() {
 		}, 200); // <<< resultBox.animate
 	}
 
+	function removeResults() {
+		$("#resultsBox").html("");
+		$("#resultsBox").css('margin-top', '10em');
+		$("#resultsBox").css('opacity', '0');
+	}
+
+	// JSON to HTML
 	function renderResults(results) {
 		var link = "https://en.wikipedia.org/wiki/?curid=";
 		for (var key in results) {
@@ -70,12 +81,8 @@ $(document).ready(function() {
 		resultsShown = true;
 	}
 
-	function removeResults() {
-		$("#resultsBox").html("");
-		$("#resultsBox").css('margin-top', '10em');
-		$("#resultsBox").css('opacity', '0');
-	}
 
+	// Get data from Mediawiki using JSONP 
 	function fetchData(searchedFor) {
 		$.getJSON('https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrlimit=15&prop=extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + searchedFor + '&format=json&callback=?', function(json) {
 				var results = json.query.pages;
@@ -86,7 +93,8 @@ $(document).ready(function() {
 	function getInput() {
 		return $("#searchInput").val();
 	}
-
+	// <<< Functions
+	
 	// Start searching/animating when Enter is pressed
 	$("#searchInput").keyup(function(event) {
 		if (event.which == 13) {
@@ -94,12 +102,12 @@ $(document).ready(function() {
 			fetchData(searchedFor);
 			if (isOpen)
 				slideBoxUp();
-			if (resultsShown) {
+			if (resultsShown)
 				removeResults().delay(100);
-			}
 		}
 	});
-
+	// <<< --- SEARCHING ---
+	
 	// Blink subtitle link
 	(function blink() {
 		$("h1 sub a").delay(4000).fadeOut(300).fadeIn(300, blink);
@@ -119,6 +127,6 @@ $(document).ready(function() {
 		} else {
 			$("#scrollTop").fadeOut();
 		}
-	});
+	}); // <<< scroll
 
 }); // <<< ready
