@@ -3,6 +3,11 @@ $(document).ready(function() {
 	var wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
 	$("#wikiBox").css("margin-top", wikiBoxMarginTop);
 
+	// Remove button focus
+	$(".btn").focus(function(event) {
+	    event.target.blur();
+	});
+
 	// Random button click
 	$("#randomBtn").click(function() {
 		window.open("http://en.wikipedia.org/wiki/Special:Random");

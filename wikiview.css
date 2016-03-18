@@ -2,6 +2,10 @@ body {
 	background-color: #180726;
 }
 
+#wikiBox .btn:focus {
+	outline: none;
+}
+
 h1 {
 	color: white;
 }
