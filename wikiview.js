@@ -1,3 +1,7 @@
+// // // // // // // // // //
+// WIKIPEDIA VIWER (by HE) //
+// // // // // // // // // //
+
 $(document).ready(function() {
 	// wikiBox margin
 	var wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
