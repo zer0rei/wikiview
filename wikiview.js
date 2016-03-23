@@ -3,13 +3,16 @@
 // // // // // // // // // //
 
 $(document).ready(function() {
+	// Layout
+	// // //
+
 	// wikiBox margin
 	var wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
 	$("#wikiBox").css("margin-top", wikiBoxMarginTop);
 
 	// Remove button focus
 	$(".btn").focus(function(event) {
-	    event.target.blur();
+		event.target.blur();
 	});
 
 	// Random button click
@@ -18,7 +21,8 @@ $(document).ready(function() {
 	}); // <<< random.click
 
 
-	// --- SEARCHING THE WIKI ---
+	// SEARCHING THE WIKI
+	// // // // // // //
 
 	// Slide the wikiBox
 	function slideBoxUp() {
@@ -56,15 +60,14 @@ $(document).ready(function() {
 				padding: '0',
 			}, 500);
 			$("#searchBtn").html('<span class="glyphicon glyphicon-search"></span>');
-			$("#searchInput").val(""); // empty input field 
+			// empty input field
+			$("#searchInput").val("");
 		}
 	}); // <<< search.click
 
-	// Searching
-	
-	// Functions :
-	
-	// Animate redults	
+	// Functions
+
+	// Animate redults
 	function animateResults() {
 		$("#resultsBox").animate({
 			marginTop: '3em',
@@ -91,7 +94,7 @@ $(document).ready(function() {
 	}
 
 
-	// Get data from Mediawiki using JSONP 
+	// Get data from Mediawiki using JSONP
 	function fetchData(searchedFor) {
 		$.getJSON('https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrlimit=15&prop=extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + searchedFor + '&format=json&callback=?', function(json) {
 				var results = json.query.pages;
@@ -102,8 +105,7 @@ $(document).ready(function() {
 	function getInput() {
 		return $("#searchInput").val();
 	}
-	// <<< Functions
-	
+
 	// Start searching/animating when Enter is pressed
 	$("#searchInput").keyup(function(event) {
 		if (event.which == 13) {
@@ -115,8 +117,10 @@ $(document).ready(function() {
 				removeResults().delay(100);
 		}
 	});
-	// <<< --- SEARCHING ---
-	
+
+	// ELEMENTS
+	// // // //
+
 	// Blink subtitle link
 	(function blink() {
 		$("h1 sub a").delay(4000).fadeOut(300).fadeIn(300, blink);
@@ -129,7 +133,7 @@ $(document).ready(function() {
 		$('html, body').animate({scrollTop : 0},500);
 		return false;
 	});
-	// only show when scrolled
+	// Only show when started scrolling
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
 			$("#scrollTop").fadeIn();
