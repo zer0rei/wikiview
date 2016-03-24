@@ -6,9 +6,13 @@ $(document).ready(function() {
 	// Layout
 	// // //
 
-	// wikiBox margin
-	var wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
-	$("#wikiBox").css("margin-top", wikiBoxMarginTop);
+	$(window).resize(function() {
+		// wikiBox margin
+		var wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
+		$("#wikiBox").css("margin-top", wikiBoxMarginTop);
+	});
+
+	$(window).resize();
 
 	// Remove button focus
 	$(".btn").focus(function(event) {
@@ -19,7 +23,6 @@ $(document).ready(function() {
 	$("#randomBtn").click(function() {
 		window.open("http://en.wikipedia.org/wiki/Special:Random");
 	}); // <<< random.click
-
 
 	// SEARCHING THE WIKI
 	// // // // // // //
