@@ -89,7 +89,10 @@ $(document).ready(function() {
 		var link = "https://en.wikipedia.org/wiki/?curid=";
 		for (var key in results) {
 			if (results.hasOwnProperty(key)) {
-				$("#resultsBox").append('<a href="' + link + results[key].pageid + '" target="_blank"><div class="result well"><h3>' + results[key].title + '</h1><p>' + results[key].extract + '</p></div></a>');
+				$("#resultsBox").append('<a href="' + link + results[key].pageid +
+										'" target="_blank"><div class="result well"><h3>' +
+										results[key].title + '</h1><p>' +
+										results[key].extract + '</p></div></a>');
 			}
 		}
 		animateResults();
@@ -99,7 +102,9 @@ $(document).ready(function() {
 
 	// Get data from Mediawiki using JSONP
 	function fetchData(searchedFor) {
-		$.getJSON('https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrlimit=15&prop=extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + searchedFor + '&format=json&callback=?', function(json) {
+		$.getJSON('https://en.wikipedia.org/w/api.php?action=query&generator=search&\
+					gsrlimit=15&prop=extracts&pilimit=max&exintro&explaintext&exsentences=1&\
+					exlimit=max&gsrsearch=' + searchedFor + '&format=json&callback=?', function(json) {
 				var results = json.query.pages;
 				renderResults(results);
 				});
