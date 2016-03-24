@@ -6,9 +6,10 @@ $(document).ready(function() {
 	// Layout
 	// // //
 
+	var wikiBoxMarginTop;
 	$(window).resize(function() {
 		// wikiBox margin
-		var wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
+		wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
 		$("#wikiBox").css("margin-top", wikiBoxMarginTop);
 	});
 
