@@ -9,8 +9,12 @@ $(document).ready(function() {
 	var wikiBoxMarginTop;
 	$(window).resize(function() {
 		// wikiBox margin
-		wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
-		$("#wikiBox").css("margin-top", wikiBoxMarginTop);
+		if (!resultsShown) {
+			wikiBoxMarginTop = (($(window).height() - $("#wikiBox").height()) / 2);
+			$("#wikiBox").css("margin-top", wikiBoxMarginTop);
+		}
+		$("#scrollTop").css("left", $(window).width() - 100);
+		$("#scrollTop").css("top", $(window).height() - 100);
 	});
 
 	$(window).resize();
@@ -136,8 +140,6 @@ $(document).ready(function() {
 	})();
 
 	// Scroll to top button
-	$("#scrollTop").css("left", $(window).width() - 100);
-	$("#scrollTop").css("top", $(window).height() - 100);
 	$("#scrollTop").click(function() {
 		$('html, body').animate({scrollTop : 0},500);
 		return false;
