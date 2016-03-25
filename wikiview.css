@@ -66,6 +66,8 @@ h1 sub a:hover {
 	position: fixed;
 }
 
-#scrollTop:hover {
-	opacity: 1;
+@media screen and (min-width: 1025px) {
+	#scrollTop:hover {
+		opacity: 1;
+	}
 }
